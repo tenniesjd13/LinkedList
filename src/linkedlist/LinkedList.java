@@ -16,13 +16,19 @@ public class LinkedList {
         return (first == null);
     }
 
-    public void insertFirst(double data) {
+    public void push(double data) {
         Link newLink = new Link(data);
         newLink.next = first;
         first = newLink;
     }
 
-    public Link deleteFirst() {
+    public Link pop() {
+        Link temp = first;
+        first = first.next;
+        return temp;
+    }
+    
+    public Link peek() {
         Link temp = first;
         first = first.next;
         return temp;
@@ -76,17 +82,22 @@ public class LinkedList {
 
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
-        list.insertFirst(25.1);
-        list.insertFirst(39.2);
-        list.insertFirst(10.3);
+        list.push(25.1);
+        list.push(39.2);
+        list.push(10.3);
         System.out.println(list);
-//        
+        
+        System.out.println("Peek = " + list.peek());
+        
         System.out.println("Match for item 25.1: " + list.find(25.1));
         System.out.println("Match for item 39.2: " + list.find(39.2));
         System.out.println("Match for item 10.3: " + list.find(10.3));
 
-//        list.delete(2);
-        if (list.delete(2) != null) {
+        Link link = list.pop();
+        System.out.println("Pop = " + link);
+        System.out.println(list);
+        
+        if (list.delete(0) != null) {
             System.out.println(list);
         } else {
             System.out.println("Null value on delete");
