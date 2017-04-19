@@ -1,23 +1,21 @@
-
 package linkedlist;
 
 /**
  * Represents a single link object.
- * 
- * @author Joshua Tennies
+ *
+ * @author 55jphillip
  */
 public class Link {
-    public double data; //can replace with any kind of object
+
+    public Friend data; // can replace this with any kind of object
     public Link next;
-    
-    public Link(double data) {
+
+    public Link(Friend data) {
         this.data = data;
         this.next = null;
-    } 
-    
-    public String toString() {
-        return data + "";
     }
-    
-    
+
+    public String toString() {
+        return data.toString();
+    }
 }
